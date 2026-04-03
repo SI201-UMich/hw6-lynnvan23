@@ -56,7 +56,11 @@ def create_cache(dictionary, filename):
     RETURNS:
         None
     """
-    pass
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(dictionary, f, ensure_ascii=False, indent=4)
+    except OSError:
+        pass
 
 
 def search_breed(breed_id):
